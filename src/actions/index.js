@@ -5,6 +5,14 @@ const booksLoaded = (newBookList) => {
     }
 };
 
+
+const booksLoading = () => {
+    return {
+        type: 'BOOKS_LOADING',
+
+    }
+};
+
 export {
-    booksLoaded
+    booksLoaded, booksLoading
 };
