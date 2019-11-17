@@ -2,7 +2,11 @@ export default class BookStoreService {
 
     getBooks() {
         return new Promise((resolve, reject) => {
+
             setTimeout(() => {
+                if (Math.random() > 0.9) {
+                    reject(new Error('unrecognized error'))
+                }
                 resolve(BookStoreService.getData())
             }, 700);
         })

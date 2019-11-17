@@ -1,6 +1,6 @@
 const booksLoaded = (newBookList) => {
     return {
-        type: 'BOOKS_LOADED',
+        type: 'FETCH_BOOK_SUCCESS',
         payload: newBookList
     }
 };
@@ -8,11 +8,27 @@ const booksLoaded = (newBookList) => {
 
 const booksLoading = () => {
     return {
-        type: 'BOOKS_LOADING',
+        type: 'FETCH_BOOK_REQUEST',
+
+    }
+};
+
+const booksLoadingError = (error) => {
+    return {
+        type: 'FETCH_BOOK_FAILURE',
+        payload: error
+
+    }
+};
+
+const bookAddedToCart = (bookId) => {
+    return {
+        type: 'BOOK_ADDED_TO_CART',
+        payload: bookId
 
     }
 };
 
 export {
-    booksLoaded, booksLoading
+    booksLoaded, booksLoading, booksLoadingError, bookAddedToCart
 };
