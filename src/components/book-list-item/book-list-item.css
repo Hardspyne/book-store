@@ -5,6 +5,7 @@
 .book-list-item .book-image {
     width: 10%;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .book-list-item .book-image img{

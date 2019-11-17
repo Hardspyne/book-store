@@ -6,18 +6,23 @@ import {withBookStoreService} from '../hoc';
 import {booksLoaded} from "../../actions";
 import {bindActionCreators} from "redux";
 import compose from '../../utils';
+import Spinner from "../spinner";
 
 class BookList extends React.Component {
 
 
     componentDidMount() {
         const {bookStoreService, booksLoaded} = this.props;
-        const books = bookStoreService.getBooks();
-        booksLoaded(books);
+        bookStoreService.getBooks()
+            .then(books => booksLoaded(books));
     }
 
     render() {
-        const {books} = this.props;
+        const {books, booksLoading} = this.props;
+
+        if (booksLoading) {
+            return <Spinner/>;
+        }
 
         return (
             <ul className={'book-list'}>
@@ -37,9 +42,9 @@ class BookList extends React.Component {
 
 //маппинг свойств из redux к props компонента
 const mapStateToProps = (state) => {
-    const {books} = state;
+    const {books, booksLoading} = state;
     return {
-        books
+        books, booksLoading
     };
 };
 

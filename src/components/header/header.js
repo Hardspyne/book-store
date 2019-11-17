@@ -1,15 +1,21 @@
 import React from 'react';
 import './header.css';
+import {Link} from "react-router-dom";
 
 const Header = ({numItems, total}) => {
 
     return (
         <header className={'shop-header'}>
-            <a className={'shop-name'} href='#'>ReStore</a>
-            <a href='#'>
+            <Link to={'/'}>
+            <div className={'shop-name'} >ReStore</div>
+            </Link>
+
+            <Link to={'/cart'}>
+            <div>
                 <i className={'cart-icon fa fa-shopping-cart'}/>
                 {numItems} items (${total})
-            </a>
+            </div>
+            </Link>
         </header>
     )
 };
