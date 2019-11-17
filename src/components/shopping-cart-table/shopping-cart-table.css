@@ -1,0 +1,13 @@
+.shopping-cart-table .total {
+    float: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.shopping-cart-table table button {
+    margin-right: 0.2rem;
+}
+
+td:last-child {
+    width: 130px;
+}

@@ -1,0 +1,22 @@
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-header a {
+    color: black;
+}
+
+
+.shop-header .shop-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.5rem;
+}
+
+
+
+.cart-icon {
+    margin-right: 10px;
+    color: steelblue;
+}

@@ -1,0 +1,27 @@
+.book-list-item {
+    display: flex;
+}
+
+.book-list-item .book-image {
+    width: 10%;
+    margin-right: 10px;
+}
+
+.book-list-item .book-image img{
+    width: 100%
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.book-author {
+    margin-top: 0.5rem;
+}
+
+.book-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
