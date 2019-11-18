@@ -50,7 +50,7 @@ const BookList = ({books, onAddedToCart}) => {
 
 //маппинг свойств из redux к props компонента
 const mapStateToProps = (state) => {
-    const {books, isBooksLoading, error} = state;
+    const {bookList:{books, isBooksLoading, error}} = state;
     return {
         books,
         isBooksLoading,

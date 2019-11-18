@@ -1,6 +1,8 @@
 import React from 'react';
 import './shopping-cart-table.css';
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {allBooksRemovedFromCart, bookAddedToCart, bookRemovedFromCart} from "../../actions";
 
 const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => {
 
@@ -58,7 +60,7 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
 
 //маппинг свойств из redux к props компонента
 const mapStateToProps = (state) => {
-    const {cartItems, orderTotal} = state;
+    const {shoppingCart: {cartItems, orderTotal}} = state;
     return {
         items: cartItems,
         total: orderTotal
@@ -67,8 +69,11 @@ const mapStateToProps = (state) => {
 
 //маппинг свойств из redux к action
 const mapDispatchToProps = (dispatch) => {
-    return {};
-//return bindActionCreators({booksLoaded, booksLoading, booksLoadingError}, dispatch);
+    return bindActionCreators({
+        onIncrease: bookAddedToCart,
+        onDecrease: bookRemovedFromCart,
+        onDelete: allBooksRemovedFromCart
+    }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCartTable);

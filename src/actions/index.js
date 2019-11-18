@@ -28,7 +28,22 @@ const bookAddedToCart = (bookId) => {
 
     }
 };
+const bookRemovedFromCart = (bookId) => {
+    return {
+        type: 'BOOK_REMOVED_FROM_CART',
+        payload: bookId
+
+    }
+};
+
+const allBooksRemovedFromCart = (bookId) => {
+    return {
+        type: 'ALL_BOOKS_REMOVED_FROM_CART',
+        payload: bookId
+
+    }
+};
 
 export {
-    booksLoaded, booksLoading, booksLoadingError, bookAddedToCart
+    booksLoaded, booksLoading, booksLoadingError, bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart
 };
