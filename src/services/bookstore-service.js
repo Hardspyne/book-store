@@ -24,7 +24,7 @@ export default class BookStoreService {
             {
                 id: 2,
                 author: 'David Flanagan',
-                title: 'JavaScript: The Definitive Guide: Activate Your Web Pages (Definitive Guides)',
+                title: `JavaScript: The Definitive Guide: Activate Your Web Pages (Definitive Guides)`,
                 price: 33.99,
                 bookImageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51lu4ArIFYL._SX379_BO1,204,203,200_.jpg'
             }];
