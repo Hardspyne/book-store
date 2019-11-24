@@ -1,9 +1,9 @@
-
 const updateShoppingCart = (state, action) => {
     if (!state) {
         return {
             cartItems: [],
-            orderTotal: 0
+            orderTotal: 0,
+            totalCount: 0
         }
     }
     switch (action.type) {
@@ -27,11 +27,14 @@ const updateOrder = (state, bookId, addedQuantity) => {
     const item = cartItems[itemIndex];
     const book = books.find(book => book.id === bookId);
     let newItem = updateCartItem(book, item, addedQuantity);
+    const newCartItems = updateCartItems(cartItems, newItem, itemIndex);
     return {
-        orderTotal: 0,
-        cartItems: updateCartItems(cartItems, newItem, itemIndex)
+        orderTotal: calcTotal(newCartItems),
+        cartItems: newCartItems,
+        totalCount: calcTotalCount(newCartItems)
     }
 };
+
 
 const updateCartItems = (cartItems, item, index) => {
     if (item.count === 0) {
@@ -51,8 +54,18 @@ const updateCartItem = (book, item = {}, addedQuantity) => {
         id,
         title,
         count: count + addedQuantity,
-        total: Number(Number(total + book.price * addedQuantity).toFixed(2))
+        total: toFixedNumber(total + book.price * addedQuantity)
     }
 };
+
+const calcTotalCount = (cartItems) => cartItems
+    .map((mapItem) => mapItem.count)
+    .reduce((prevValue, newValue) => prevValue + newValue, 0);
+
+const calcTotal = (cartItems) => toFixedNumber(cartItems
+    .map((mapItem) => mapItem.total)
+    .reduce((prevValue, newValue) => prevValue + newValue, 0));
+
+const toFixedNumber = (num) => Number(Number(num).toFixed(2));
 
 export default updateShoppingCart;

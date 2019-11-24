@@ -5,7 +5,7 @@ import {bindActionCreators} from "redux";
 import {allBooksRemovedFromCart, bookAddedToCart, bookRemovedFromCart} from "../../actions";
 
 const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => {
-
+    console.log(total);
     const renderRow = (item, index) => {
         const {id, title, count, total} = item;
         index = ++index;
