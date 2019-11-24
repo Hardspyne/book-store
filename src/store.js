@@ -5,6 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 
 const logMiddleware = (store) => (dispatch) => (action) => {
     console.log(action.type);
+    console.log(action.payload);
     console.log(store.getState());
     return dispatch(action);
 };

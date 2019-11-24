@@ -1,0 +1,26 @@
+.error-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 20rem;
+}
+
+.error-indicator .error-header {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.error-indicator .main-page-link {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.error-indicator .main-page-link:hover {
+    color: #005fbe;
+    cursor: pointer;
+}
+

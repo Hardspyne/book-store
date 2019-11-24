@@ -1,0 +1,32 @@
+.book-item  img {
+    display: block;
+    float: left;
+    width: 20%;
+    margin-right: 15px;
+}
+
+.book-item .book-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.book-item .book-description {
+
+}
+
+.book-item .book-author {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.book-item .book-price {
+    margin-top: 10px;
+    float: right;
+}
+
+
+.book-item .add-to-cart {
+    clear: both;
+    float: right;
+}
+

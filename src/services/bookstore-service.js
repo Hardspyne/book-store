@@ -1,10 +1,18 @@
 export default class BookStoreService {
 
+    async getBook(id) {
+        const book = BookStoreService.getData().find(item => item.id === id);
+        if (!book) {
+            throw new Error("can't find book");
+        }
+        return book;
+    }
+
     getBooks() {
         return new Promise((resolve, reject) => {
 
             setTimeout(() => {
-                if (Math.random() > 0.9) {
+                if (Math.random() > 0.95) {
                     reject(new Error('unrecognized error'))
                 }
                 resolve(BookStoreService.getData())
@@ -35,7 +43,18 @@ export default class BookStoreService {
                 author: 'David Flanagan',
                 title: `JavaScript: The Definitive Guide: Activate Your Web Pages (Definitive Guides)`,
                 price: 33.99,
-                bookImageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51lu4ArIFYL._SX379_BO1,204,203,200_.jpg'
+                bookImageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51lu4ArIFYL._SX379_BO1,204,203,200_.jpg',
+                description: 'Since 1996, JavaScript: The Definitive Guide has been the bible for JavaScript programmers—a programmer\'s guide and comprehensive reference to the core language and to the client side JavaScript APIs defined by web browsers.\n' +
+                    '\n' +
+                    'The 6th edition covers HTML5 and ECMAScript 5. Many chapters have been completely rewritten to bring them in line with today\'s best web development practices. New chapters in this edition document jQuery and server side JavaScript. It\'s recommended for experienced programmers who want to learn the programming language of the Web, and for current JavaScript programmers who want to master it.\n' +
+                    '\n' +
+                    '"A must have reference for expert JavaScript programmers...well organized and detailed."\n' +
+                    '\n' +
+                    '—Brendan Eich, creator of JavaScript, CTO of Mozilla\n' +
+                    '\n' +
+                    '"I made a career of what I learned from JavaScript: The Definitive Guide.”\n' +
+                    '\n' +
+                    '—Andrew Hedges, Tapulous'
             }];
     }
 }
